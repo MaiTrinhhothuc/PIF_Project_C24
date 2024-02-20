@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void nhapsoluongphantu (int *n)
+{
+    printf ("Nhap so luong phan tu cua mang: ");
+    scanf ("%d", n);
+
+    while (*n > 5)
+        {
+            printf("Khong hop le, nhap lai n \n");
+            printf ("Nhap so luong phan tu cua mang: ");
+            scanf ("%d", n);
+        }
+}
+
+void nhapmang(int *ptr, int n)
+{
+	printf ("Khoi tao mang \n");
+    for (int i=0; i < n; i ++)
+    {
+        printf("Gtri cua phan tu thu %d la: ", i);
+        scanf("%d", (ptr + i)); 
+    }
+}
+    
+void inphantumax(int *ptr, int n)
+{
+	int max = ptr[0];
+	for (int i=1; i <n; i++)
+	{
+		ptr[i] > max;
+		max = ptr[i];
+	}
+	printf("Phan tu lon nhat: %d", max);
+}
+
+void inphantumin(int *ptr, int n)
+{
+	int min = ptr[0];
+	for (int i=1; i <n; i++)
+	{
+		ptr[i] < min;
+		min = ptr[i];
+	}
+	printf("Phan tu nho nhat: %d", min);
+}
+
+int main()
+{
+    int *ptr; 
+    int n;
+    ptr = (int *) malloc(n *sizeof(int)); 
+    nhapsoluongphantu(&n);
+    nhapmang(ptr, n);
+    inphantumax(ptr, n);
+    inphantumin(ptr, n);
+    free(ptr);
+    return 0;
+}
